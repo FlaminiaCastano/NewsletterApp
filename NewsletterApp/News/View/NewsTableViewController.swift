@@ -14,7 +14,7 @@ final class NewsTableViewController: UIViewController, NewsViewModelDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    private let newsTableView: UITableView = {
+    internal let newsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
