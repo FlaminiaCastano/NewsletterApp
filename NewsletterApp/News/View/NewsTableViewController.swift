@@ -50,6 +50,7 @@ final class NewsTableViewController: UIViewController, NewsViewModelDelegate {
         
         newsTableView.backgroundColor = .white
         newsTableView.separatorStyle = .singleLine
+        self.title = ""
     }
     
     func customizeConstraints() {
@@ -79,27 +80,36 @@ final class NewsTableViewController: UIViewController, NewsViewModelDelegate {
 }
 
 extension NewsTableViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return isSearchBarActive ? filteredNews.count : newsNotes.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reuseIdentifier, for: indexPath) as! NewsTableViewCell
-
+        
         let newsItem = isSearchBarActive ? filteredNews[indexPath.row] : newsNotes[indexPath.row]
         cell.configure(with: newsItem)
-
+        
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-
+    
     var isSearchBarActive: Bool {
         return searchController.isActive && !searchController.searchBar.text!.isEmpty
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let selectedNews = isSearchBarActive ? filteredNews[indexPath.row] : newsNotes[indexPath.row]
+
+            let detailViewController = NewsDetailViewController()
+            detailViewController.selectedNews = selectedNews
+
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
 
 }
 
