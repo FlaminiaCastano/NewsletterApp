@@ -50,7 +50,7 @@ final class NewsTableViewController: UIViewController, NewsViewModelDelegate {
         
         newsTableView.backgroundColor = .white
         newsTableView.separatorStyle = .singleLine
-        self.title = ""
+        self.title = "Lista de Noticias"
     }
     
     func customizeConstraints() {
@@ -109,6 +109,7 @@ extension NewsTableViewController: UITableViewDelegate, UITableViewDataSource {
         detailViewController.selectedNews = selectedNews
 
         navigationController?.pushViewController(detailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

@@ -16,7 +16,7 @@ class NewsViewModel {
     weak var delegate: NewsViewModelDelegate?
 
     func fetchNews() async throws {
-        guard let url = URL(string: "https://jsonplaceholder.org/posts") else { return }
+        guard let url = URL(string: JsonPlaceHolderRoutes(route: .news).url) else { return }
 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)

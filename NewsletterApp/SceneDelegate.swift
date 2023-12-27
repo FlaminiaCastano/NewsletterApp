@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         self.window = UIWindow(windowScene: scene)
         
-        var initialController: UIViewController = NewsTableViewController()
+        let initialController: UIViewController = TabBarViewController()
         let navigationController: UINavigationController = UINavigationController(rootViewController: initialController)
                 
         window?.rootViewController = navigationController
