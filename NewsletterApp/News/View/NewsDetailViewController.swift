@@ -10,7 +10,7 @@ import UIKit
 final class NewsDetailViewController: UIViewController {
     var selectedNews: NewModel?
     
-    private var titleLabel: UILabel = {
+    internal var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -20,14 +20,14 @@ final class NewsDetailViewController: UIViewController {
         return label
     }()
     
-    private var thumbnailImageView: UIImageView = {
+    internal var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private var contentLabel: UILabel = {
+    internal var contentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
@@ -37,7 +37,7 @@ final class NewsDetailViewController: UIViewController {
         return label
     }()
     
-    private var publishedAtLabel: UILabel = {
+    internal var publishedAtLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 14)

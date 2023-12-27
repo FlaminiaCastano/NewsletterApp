@@ -20,7 +20,7 @@ final class NewsTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    private var titleLabel: UILabel = {
+    internal var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.numberOfLines = 0
@@ -28,7 +28,7 @@ final class NewsTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var contentLabel: UILabel = {
+    internal var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 0
