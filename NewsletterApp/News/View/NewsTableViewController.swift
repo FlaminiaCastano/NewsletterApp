@@ -103,13 +103,13 @@ extension NewsTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let selectedNews = isSearchBarActive ? filteredNews[indexPath.row] : newsNotes[indexPath.row]
+        let selectedNews = isSearchBarActive ? filteredNews[indexPath.row] : newsNotes[indexPath.row]
 
-            let detailViewController = NewsDetailViewController()
-            detailViewController.selectedNews = selectedNews
+        let detailViewController = NewsDetailViewController()
+        detailViewController.selectedNews = selectedNews
 
-            navigationController?.pushViewController(detailViewController, animated: true)
-        }
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 
 }
 

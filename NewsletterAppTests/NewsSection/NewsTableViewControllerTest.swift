@@ -38,6 +38,21 @@ class NewsTableViewControllerTest: XCTestCase {
         //isRecording = true
         assertSnapshot(matching: viewController, as: .image)
     }
+    
+    func testSearchResults() {
+        viewController.newsViewModel.delegate = viewController
+        viewController.searchController.isActive = true
+        viewController.searchController.searchBar.text = "Dolor"
+
+        let searchExpectation = XCTestExpectation(description: "Search results updated")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                searchExpectation.fulfill()
+        }
+        wait(for: [searchExpectation], timeout: 5.0)
+
+        XCTAssertEqual(viewController.filteredNews.count, 1)
+        XCTAssertEqual(viewController.filteredNews.first?.title, "Dolor Sit Amet")
+    }
 
     
     private func createNewsModels() -> [NewModel] {
