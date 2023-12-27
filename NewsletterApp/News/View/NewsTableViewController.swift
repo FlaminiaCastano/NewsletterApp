@@ -109,6 +109,7 @@ extension NewsTableViewController: UITableViewDelegate, UITableViewDataSource {
         detailViewController.selectedNews = selectedNews
 
         navigationController?.pushViewController(detailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
